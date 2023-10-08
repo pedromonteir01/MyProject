@@ -1,0 +1,22 @@
+.linkStyle {
+    color:  rgb(255, 255, 255);
+    text-decoration: none;
+    font-size: 1.25rem;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.linkStyle::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.5s ease-in-out;
+}
+
+.linkStyle:hover::after{
+    width: 100%;
+}

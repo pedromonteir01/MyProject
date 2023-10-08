@@ -1,0 +1,13 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(31, 31, 31);
+}
+
+.listContainer {
+    display: flex;
+    list-style: none;
+    gap: 1.25rem;
+    padding: 1rem;
+}
