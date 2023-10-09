@@ -1,0 +1,9 @@
+.inputS {
+    border: none;
+    outline: none;
+    height: 2.5rem;
+    width: 20rem;
+    padding: 1.5rem;
+    font-size: large;
+    border-radius: 5px;
+}

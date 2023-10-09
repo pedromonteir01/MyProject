@@ -1,9 +1,31 @@
+'use client'
 import styles from '@/app/Login/login.module.css'
 import Header from '../components/header/Header';
 import Footer from '../components/footer/Footer';
 import Link from 'next/link';
+import { useState } from 'react';
+import Input from '../components/input/Input';
+import users from '@/data/users/users';
 
 const Login = () => {
+    let empty = '';
+
+    const [email, setEmail] = useState(empty);
+    const [password, setPassword] = useState(empty);
+    const [aux, setAux] = useState(null);
+
+    const verify = () => {
+        const userslist = users;
+
+        userslist.map((user) => (
+            (email == user.email) && (
+                user.password == password ? setAux(true) : setAux(null)
+            )
+        ))
+
+        return aux;
+    }
+
     return(
         <>
         <Header/>
@@ -16,15 +38,21 @@ const Login = () => {
 
                         <div className={styles.inputField}>
                             <label style={{fontSize: 20}} htmlFor="email">E-mail:</label>
-                            <input type="email" name='email' placeholder='E-mail...' className={styles.inputS}/>
+                            <Input type={'email'} name={'email'} value={email} onChange={setEmail}/>
                         </div>
 
                         <div className={styles.inputField}>
                             <label style={{fontSize: 20}} htmlFor="password">Senha:</label>
-                            <input type="password" name='password' className={styles.inputS}/>
+                            <Input type={'password'} name={'password'} value={password} onChange={setPassword}/>
                         </div>
 
-                        <button className={styles.btnRegister}>Acessar</button>
+                        <button className={styles.btnRegister} onClick={verify}>Acessar</button>
+                       {
+                        verify() ? alert('ok') : alert('not')
+                       }
+                       {
+                        setAux(false)
+                       }
 
                     </section>
                 </article>
