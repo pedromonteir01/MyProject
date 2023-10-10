@@ -1,6 +1,6 @@
 import styles from '@/app/components/input/input.module.css'
 
-const Input = ({type, value, name, onChange, classe}) => {
+const Input = ({type, value, name, onChange}) => {
     return(
         <input 
             type={type}
